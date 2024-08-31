@@ -3,41 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TraqWay</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            max-width: 150px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .footer .column {
+            width: 30%;
+            display: inline-block;
+            vertical-align: top;
+            margin: 0 1.5%;
+        }
+        .footer .column h3 {
+            margin-bottom: 15px;
+        }
+        .footer .column a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 5px 0;
+        }
+        .footer .column a:hover {
+            text-decoration: underline;
+        }
+        .footer .social-icons a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+        .footer .social-icons img {
+            width: 24px;
+            height: 24px;
+        }
+        .footer .bottom-links {
+            margin-top: 20px;
+        }
+        .footer .bottom-links a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+        }
+        .footer .bottom-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Route Planner</h1>
-        <p>Your go-to transport platform. Plan. Calculate. Explore.</p>
-    </header>
-    <main>
-        <section id="search">
-            <input type="text" placeholder="where from?" name="from">
-            <input type="text" placeholder="where to?" name="to">
-        </section>
-        <section id="features">
-            <h2>Key Features</h2>
-            <div class="feature-grid">
-                <div class="feature-item">Route</div>
-                <div class="feature-item">Fare</div>
-                <div class="feature-item">SACCO</div>
-                <div class="feature-item">Real-time</div>
-                <div class="feature-item">Feedback</div>
-                <div class="feature-item">Navigation</div>
-                <div class="feature-item">Services</div>
+    <div class="container">
+        <div class="header">
+            <img src="Traq/static/images/logo.png" alt="Moderny Logo">
+        </div>
+        <h2>Contact Us</h2>
+        <form action="submit_form.php" method="post">
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name" required>
             </div>
-        </section>
-        <section id="feedback">
-            <h2>Latest Feedback</h2>
-            <div class="feedback-item">
-                <p>*****</p>
-                <p>Anonymous reviewed Route Experience</p>
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last-name" required>
             </div>
-        </section>
-    </main>
-    <footer>
-        <p>©️ 2024 TraqWay</p>
-    </footer>
+            <div class="form-group">
+                <label for="phone-number">Phone Number</label>
+                <input type="tel" id="phone-number" name="phone-number" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+        <p>Contact us at: <a href="TraqWay:customer.care@Traq.co.ke">customer.care@Traq.co.ke</a> or call +254 799 997000</p>
+    </div>
+
+    <div class="footer">
+        <div class="column">
+            <h3>Download the TraqWay app to use on your smartphone, anytime, anywhere.</h3>
+            <a href="#"><img src="google-play-icon.png" alt="Google Play"> Google Play</a>
+        </div>
+        <div class="column">
+            <h3>Quick Links</h3>
+            <a href="#">About Us</a>
+            <a href="#">Our Services</a>
+            <a href="#">Careers</a>
+            <a href="#">Get in Touch</a>
+            <a href="#">FAQs</a>
+        </div>
+        <div class="column">
+            <h3>We're on Social</h3>
+            <div class="social-icons">
+                <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+                <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+                <a href="#"><img src="blog-icon.png" alt="Blog"></a>
+            </div>
+        </div>
+        <div class="bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <p>© 2024 TraqWay | All Rights Reserved</p>
+        </div>
+    </div>
 </body>
 </html>
