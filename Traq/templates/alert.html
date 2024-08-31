@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Reviews</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        main {
+            padding: 1rem;
+        }
+
+        #reviews {
+            margin-bottom: 2rem;
+        }
+
+        .review {
+            background-color: #fff;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            margin-top: 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .alert {
+            background-color: #ffcc00;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Travel Reviews</h1>
+    </header>
+    <main>
+        <section id="reviews">
+            <h2>Reviews</h2>
+            <div class="review">
+                <h3><i class="fas fa-bus"></i> Lopha Travels</h3>
+                <p><strong>Patience Mwaura:</strong> WASN'T GIVEN BACK CHANGE. I boarded a matatu from Ngara at around 5:50pm and alighted at Kenyatta road some minutes to 6:50pm. I gave the conductor Ksh 500 and didn't receive back my change. He said he didn't have the change when I asked for it and I only remembered after alighting. The fare was Ksh 70.</p>
+                <p><strong>Anonymous:</strong> Shitty service. Physically assaulted by a conductor. Kidogo aniue! Gave him 500 and said I did not give him when I asked for my balance. Am even scared for my fellow women! Pathetic!</p>
+            </div>
+            <div class="review">
+                <h3><i class="fas fa-bus"></i> Super Metro</h3>
+                <p><strong>Nancy Stephanie957:</strong> The best organised sacco which can't carry even a single excess. They don't waste time at all.</p>
+                <p><strong>James Gitau:</strong> Welcome, we have suffered with old Citi Hoppa and City Shuttle buses. Also do Alsopps Airport route. Welcome.</p>
+                <p><strong>Remy:</strong> Wow, amazing, I love Super Metro.</p>
+                <p><strong>Ariana:</strong> Wah, navenye makanga nowadays wana threat watu. Imagine ukiingia SUPER METRO ukose kuuliza price before watakugonga bei.</p>
+            </div>
+        </section>
+        <section id="alerts">
+            <h2>Real-Time Alerts</h2>
+            <div id="alert-container"></div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 TraQway</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Example alert data
+            const alerts = [
+                { location: 'Kenyatta Road', message: 'You are approaching your destination.' },
+                { location: 'Ngara', message: 'You have reached your starting point.' }
+            ];
+
+            // Function to display alerts
+            function displayAlerts() {
+                const alertContainer = document.getElementById('alert-container');
+                alerts.forEach(alert => {
+                    const alertDiv = document.createElement('div');
+                    alertDiv.className = 'alert';
+                    alertDiv.innerHTML = `<strong>${alert.location}:</strong> ${alert.message}`;
+                    alertContainer.appendChild(alertDiv);
+                });
+            }
+
+            // Call the function to display alerts
+            displayAlerts();
+        });
+    </script>
+</body>
+</html>

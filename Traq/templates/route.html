@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TraQway</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='route.css') }}">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_ACTUAL_API_KEY&libraries=places"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <header>
@@ -45,29 +47,12 @@
                 <h3>Fare Estimate:</h3>
                 <p id="fare"></p>
             </div>
+            <div id="location-suggestions"></div>
             <img src="search-travel.jpg" alt="Search Travel" class="search-image">
         </section>
         <section id="map">
             <h2>Interactive Map</h2>
-            <div id="map-container" style="height: 500px; width: 100%;"></div>
-            <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
-            <script>
-                function initMap() {
-                    var map = new google.maps.Map(document.getElementById('map-container'), {
-                        center: {lat: -1.286389, lng: 36.817223},
-                        zoom: 14
-                    });
-
-                    var marker = new google.maps.Marker({
-                        position: {lat: -1.286389, lng: 36.817223},
-                        map: map,
-                        title: 'Nairobi CBD'
-                    });
-                }
-
-                // Initialize the map
-                google.maps.event.addDomListener(window, 'load', initMap);
-            </script>
+            <div id="map-container"></div>
         </section>
         <section id="alerts">
             <h2>Real-Time Alerts</h2>
@@ -77,5 +62,36 @@
     <footer>
         <p>© 2024 TraQway</p>
     </footer>
+    <script>
+        $(document).ready(function() {
+            $('#from-location, #to-location').on('input', function() {
+                var input = $(this).val();
+                console.log('Input:', input); // Debugging statement
+                var data = null;
+
+                const xhr = new XMLHttpRequest();
+                xhr.withCredentials = true;
+
+                xhr.addEventListener('readystatechange', function () {
+                    if (this.readyState === this.DONE) {
+                        console.log('Response:', this.responseText); // Debugging statement
+                        var response = JSON.parse(this.responseText);
+                        var suggestions = response.results.map(function(result) {
+                            return '<p>' + result.formatted_address + '</p>';
+                        }).join('');
+                        $('#location-suggestions').html(suggestions);
+                    }
+                });
+
+                var apiUrl = 'https://google-map-places.p.rapidapi.com/maps/api/geocode/json?address=' + encodeURIComponent(input) + '&language=en&region=en&result_type=administrative_area_level_1&location_type=APPROXIMATE';
+                console.log('API URL:', apiUrl); // Debugging statement
+                xhr.open('GET', apiUrl);
+                xhr.setRequestHeader('x-rapidapi-key', '07d340254fmshd96cb1998e5538ap18046djsn50e982672094');
+                xhr.setRequestHeader('x-rapidapi-host', 'google-map-places.p.rapidapi.com');
+
+                xhr.send(data);
+            });
+        });
+    </script>
 </body>
 </html>
