@@ -11,18 +11,68 @@
             color: #333;
         }
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 50px auto;
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+            display: flex;
+            }
         .header {
-            text-align: center;
+            text-align: left;
             margin-bottom: 20px;
         }
-        .header img {
-            max-width: 150px;
+        header img {
+            max-width: 50px;
+            margin-left: 20px;
+            height: auto;
+        } 
+        .header .nav-container {
+            display: flex;
+            flex: 1;
+            justify-content: space-between;
+            align-items: right;
+        }
+        .header nav {
+            flex: 1;
+            text-align:right;
+        }
+        .header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .header nav ul li {
+            margin: 0 15px;
+        }
+        .header nav ul li a {
+            color: orange;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .header .login-btn {
+            margin-right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .header .login-btn:hover {
+            background-color: #45a049;
+        }
+        .contact-details {
+            flex: 1;
+            padding-right: 15px;
+        }
+        .contact-details h2 {
+            margin-top: 70px;
+        }
+        .form-container {
+            flex: 2;
+            padding-right: 10px;
         }
         .form-group {
             margin-bottom: 15px;
@@ -71,7 +121,11 @@
             color: white;
             text-decoration: none;
             display: block;
-            margin: 5px 0;
+            margin: 15px 0;
+        }
+        .footer .column a img {
+            max-width: 100px; /* Adjust the size as needed */
+            height: auto;
         }
         .footer .column a:hover {
             text-decoration: underline;
@@ -98,41 +152,62 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <img src="Traq/static/images/logo.png" alt="Moderny Logo">
+    <div class="header">
+        <div class="logo">
+        <img src="{{url_for('static', filename='images/logo.png') }}" alt="bus Logo">
         </div>
-        <h2>Contact Us</h2>
-        <form action="submit_form.php" method="post">
-            <div class="form-group">
-                <label for="first-name">First Name</label>
-                <input type="text" id="first-name" name="first-name" required>
-            </div>
-            <div class="form-group">
-                <label for="last-name">Last Name</label>
-                <input type="text" id="last-name" name="last-name" required>
-            </div>
-            <div class="form-group">
-                <label for="phone-number">Phone Number</label>
-                <input type="tel" id="phone-number" name="phone-number" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Submit</button>
-        </form>
-        <p>Contact us at: <a href="TraqWay:customer.care@Traq.co.ke">customer.care@Traq.co.ke</a> or call +254 799 997000</p>
+        <div class="nav-container">
+        <nav>
+            <ul>
+                <li><a href="book-us.html">Book Us</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+                <li><a href="services.html">Services</a></li>
+            </ul>
+        </nav>
+        <button class="login-btn" onclick="location.href='login.html'">Login</button>
+    </div>
+    </div>
+    <div class="container">
+        <div class="contact-details">
+            <h2>Contact:-</h2>
+            <p>Call us: +254 799 991110</p>
+            <p>Email us: customer.care@Traq.co.ke</p>
+            <p>We'd love to hear from you with your questions or comments.</p>
+        </div>
+        <div class="form-container">
+            <h2>Contact Us</h2>
+            <form action="submit_form.php" method="post">
+                <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="first-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="last-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone-number">Phone Number</label>
+                    <input type="tel" id="phone-number" name="phone-number" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
     </div>
 
     <div class="footer">
         <div class="column">
             <h3>Download the TraqWay app to use on your smartphone, anytime, anywhere.</h3>
-            <a href="#"><img src="google-play-icon.png" alt="Google Play"> Google Play</a>
+            <a href="#"><img src="{{ url_for('static', filename='images/Google.jpg') }}" alt="Google Play"></a>
         </div>
         <div class="column">
             <h3>Quick Links</h3>
@@ -145,10 +220,10 @@
         <div class="column">
             <h3>We're on Social</h3>
             <div class="social-icons">
-                <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
-                <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
-                <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
-                <a href="#"><img src="blog-icon.png" alt="Blog"></a>
+                <a href="#"><img src="{{ url_for('static', filename='images/Facebook_Logo.png') }}" alt="Facebook"></a>
+                <a href="#"><img src="{{ url_for('static', filename='images/twitter.png') }}" alt="Twitter"></a>
+                <a href="#"><img src="{{ url_for('static', filename='images/instagram.png') }}" alt="Instagram"></a>
+                
             </div>
         </div>
         <div class="bottom-links">
@@ -159,3 +234,4 @@
     </div>
 </body>
 </html>
+
