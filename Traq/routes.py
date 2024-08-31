@@ -18,5 +18,5 @@ def features():
 
 
 @app.route("/routes")
-def features():
+def routes():
     return render_template("route.html", title="routes")
