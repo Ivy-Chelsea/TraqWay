@@ -26,3 +26,8 @@ def routes():
 @app.route("/sacco")
 def sacco():
     return render_template("sacco.html", title="saccos", saccos=saccos)
+
+
+@app.route("/reviews")
+def reviews():
+    return render_template("alert.html", title="reviews", saccos=saccos)
