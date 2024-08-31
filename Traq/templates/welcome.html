@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>Transport</h1>
+        <h1>TraQway</h1>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -24,34 +24,40 @@
             <p>Discover our range of transportation services designed to make your travel convenient and efficient.</p>
             <div class="features">
                 <div class="feature-item">
-                    <img src="route.png" alt="Route Planner">
+                    <img src="{{url_for('static', filename='images/route.png') }}" alt="Route Planner">
+                    
                     <p>Route Planner</p>
                 </div>
                 <div class="feature-item">
-                    <img src="fare_calculator.jpg" alt="Fare Calculator">
+                    <img src="{{url_for('static', filename='images/Calculator.png') }}" alt="Calculator">
+                    
                     <p>Fare Calculator</p>
                 </div>
                 <div class="feature-item">
-                    <img src="search.png" alt="SACCO Finder">
+                    <img src="{{url_for('static', filename='images/search.png') }}" alt="search">
+                    
                     <p>SACCO Finder</p>
                 </div>
                 <div class="feature-item">
-                    <img src="bell.png" alt="Real-time Alerts">
+                    <img src="{{url_for('static', filename='images/bell.png') }}" alt="Real-time Alerts">
+                    
                     <p>Real-time Alerts</p>
                 </div>
                 <div class="feature-item">
-                    <img src="star.png" alt="User Reviews">
+                    <img src="{{url_for('static', filename='images/star.png') }}" alt="User Reviews">
+                    
                     <p>User Reviews</p>
                 </div>
                 <div class="feature-item">
-                    <img src="chat.png" alt="Feedback">
+                    <img src="{{url_for('static', filename='images/chat.png') }}" alt="Feedback">
+                    
                     <p>Feedback</p>
                 </div>
             </div>
         </section>
     </main>
     <footer>
-        <p>© 2024 Transpo</p>
+        <p>© 2024 TraQway</p>
     </footer>
 </body>
 </html>
