@@ -10,3 +10,8 @@ def landing():
 @app.route("/home")
 def home():
     return render_template('welcome.html', title='welcome')
+
+
+@app.route("/features")
+def features():
+    return render_template("last_page.html", title="features")
