@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SACCO Options</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='sacco.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Available SACCOs</h1>
+        <input type="text" id="searchBar" placeholder="Search SACCOs..." onkeyup="filterSaccos()">
+    </header>
+    <main>
+        <ul id="saccoList">
+            {% for sacco in saccos %}
+            <li class="sacco-card">
+                <h2>{{ sacco.name }}</h2>
+                <p><strong>Routes:</strong> {{ sacco.routes }}</p>
+                <p><strong>Operational Hours:</strong> {{ sacco.hours }}</p>
+                <p><strong>Contact:</strong> {{ sacco.contact }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </main>
+    <footer>
+        <p>Contact us for more information.</p>
+    </footer>
+    <script>
+        function filterSaccos() {
+            const searchInput = document.getElementById('searchBar').value.toLowerCase();
+            const saccoCards = document.querySelectorAll('.sacco-card');
+            
+            saccoCards.forEach(card => {
+                const saccoName = card.querySelector('h2').textContent.toLowerCase();
+                if (saccoName.includes(searchInput)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
