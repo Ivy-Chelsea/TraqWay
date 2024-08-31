@@ -9,4 +9,4 @@ def landing():
 
 @app.route("/home")
 def home():
-    return render_template('welcome.html', title='landing page')
+    return render_template('welcome.html', title='welcome')
