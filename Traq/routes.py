@@ -20,3 +20,8 @@ def features():
 @app.route("/routes")
 def routes():
     return render_template("route.html", title="routes")
+
+
+@app.route("/sacco")
+def sacco():
+    return render_template("sacco.html", title="saccos")
