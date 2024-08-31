@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TraQway</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='route.css') }}">
+</head>
+<body>
+    <header>
+        <div class="nav-menu-icon">
+            <img src="menu-icon.png" alt="Menu">
+        </div>
+        <h1>TraQway</h1>
+        <img src="{{url_for('static', filename='images/bus.png') }}" alt="Logo">
+    </header>
+    <main>
+        <section class="welcome">
+            <h2>Find stages within the CBD</h2>
+            <p>TraQway got you covered. If you want to find the location of stages and different SACCOS associated</p>
+            <img src="{{url_for('static', filename='images/bus1.png') }}" alt="Welcome Travel" class="welcome-image">
+        </section>
+        <section class="search">
+            <h3>Travel...</h3>
+            <form id="search-form">
+                <label for="from-location">From:</label>
+                <input type="text" id="from-location" placeholder="Auto-detect or enter manually">
+                
+                <label for="to-location">To:</label>
+                <input type="text" id="to-location" placeholder="Enter destination">
+                
+                <label for="travel-mode">Travel Mode:</label>
+                <select id="travel-mode">
+                    <option value="bus">Bus</option>
+                    <option value="matatu">Matatu</option>
+                    <option value="walking">Walking</option>
+                </select>
+                
+                <label for="travel-date">Date:</label>
+                <input type="date" id="travel-date">
+                
+                <button type="button" onclick="searchRoutes()">Search</button>
+            </form>
+            <div id="fare-estimate">
+                <h3>Fare Estimate:</h3>
+                <p id="fare"></p>
+            </div>
+            <img src="search-travel.jpg" alt="Search Travel" class="search-image">
+        </section>
+        <section id="map">
+            <h2>Interactive Map</h2>
+            <div id="map-container"></div>
+        </section>
+        <section id="alerts">
+            <h2>Real-Time Alerts</h2>
+            <div id="alert-container"></div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 TraQway</p>
+    </footer>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+    <script src="script.js"></script>
+</body>
+</html>

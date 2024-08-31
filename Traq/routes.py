@@ -15,3 +15,8 @@ def home():
 @app.route("/features")
 def features():
     return render_template("last_page.html", title="features")
+
+
+@app.route("/routes")
+def routes():
+    return render_template("route.html", title="routes")
