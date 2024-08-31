@@ -19,11 +19,15 @@
             display: flex;
             }
         .header {
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
             text-align: left;
-            margin-bottom: 20px;
+            padding: 10px 20px;
+            background-color: #333;
         }
-        header img {
-            max-width: 50px;
+        .header img {
+            max-width: 100px;
             margin-left: 20px;
             height: auto;
         } 
@@ -31,7 +35,8 @@
             display: flex;
             flex: 1;
             justify-content: space-between;
-            align-items: right;
+            align-items: center;
+            margin-right: 20px;
         }
         .header nav {
             flex: 1;
@@ -39,8 +44,8 @@
         }
         .header nav ul {
             list-style: none;
-            padding: 0;
-            margin: 0;
+            padding: 0px;
+            margin: 0px;
             display: flex;
         }
         .header nav ul li {
@@ -154,19 +159,19 @@
 <body>
     <div class="header">
         <div class="logo">
-        <img src="{{url_for('static', filename='images/logo.png') }}" alt="bus Logo">
+         <img src="{{url_for('static', filename='images/logo.png') }}" alt="bus Logo">
         </div>
         <div class="nav-container">
         <nav>
             <ul>
-                <li><a href="book-us.html">Book Us</a></li>
-                <li><a href="careers.html">Careers</a></li>
-                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="book-us.html">Home</a></li>
+                <li><a href="careers.html">Available Sacco's</a></li>
+                <li><a href="about-us.html">Routes</a></li>
                 <li><a href="contact-us.html">Contact Us</a></li>
-                <li><a href="services.html">Services</a></li>
+            
             </ul>
         </nav>
-        <button class="login-btn" onclick="location.href='login.html'">Login</button>
+        <button class="login-btn" onclick="location.href='login.html'">Logout</button>
     </div>
     </div>
     <div class="container">
@@ -218,11 +223,11 @@
             <a href="#">FAQs</a>
         </div>
         <div class="column">
-            <h3>We're on Social</h3>
+            <h3>Social's:</h3>
             <div class="social-icons">
-                <a href="#"><img src="{{ url_for('static', filename='images/Facebook_Logo.png') }}" alt="Facebook"></a>
-                <a href="#"><img src="{{ url_for('static', filename='images/twitter.png') }}" alt="Twitter"></a>
-                <a href="#"><img src="{{ url_for('static', filename='images/instagram.png') }}" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/in/veronicah-anzimbu-aa15a8232"><img src="{{ url_for('static', filename='images/Facebook_Logo.png') }}" alt="Facebook"></a>
+                <a href="https://twitter.com/veranzi_dev"><img src="{{ url_for('static', filename='images/twitter.png') }}" alt="Twitter"></a>
+                <a href="https://www.instagram.com/verahnzika?igsh=czFxODVkcWphNWth"><img src="{{ url_for('static', filename='images/instagram.png') }}" alt="Instagram"></a>
                 
             </div>
         </div>
