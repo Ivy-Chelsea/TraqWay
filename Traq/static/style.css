@@ -6,8 +6,8 @@ body {
 }
 
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: #000; /* Black */
+    color: #FFA500; /* Orange */
     padding: 1rem;
     text-align: center;
 }
@@ -25,7 +25,7 @@ section {
 }
 
 h2 {
-    color: #333;
+    color: #000; /* Black */
 }
 
 .buttons {
@@ -38,13 +38,13 @@ button {
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #FFA500; /* Orange */
+    color: #000; /* Black */
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #FF8C00; /* Darker Orange */
 }
 
 input[type="text"] {
@@ -56,8 +56,8 @@ input[type="text"] {
 }
 
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #000; /* Black */
+    color: #FFA500; /* Orange */
     text-align: center;
     padding: 1rem;
     position: fixed;

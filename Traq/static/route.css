@@ -6,8 +6,8 @@ body {
 }
 
 header {
-    background-color: #4B0082;
-    color: #fff;
+    background-color: #000; /* Black */
+    color: #FFA500; /* Orange */
     padding: 20px;
     text-align: center;
     position: relative;
@@ -45,7 +45,7 @@ main {
 }
 
 .welcome-image {
-    width: 100%;
+    width: 15%;
     height: auto;
     margin-top: 10px;
 }
@@ -70,6 +70,7 @@ main {
 
 #search-form label {
     font-weight: bold;
+    color: #000; /* Black */
 }
 
 #search-form input[type="text"],
@@ -81,8 +82,8 @@ main {
 }
 
 #search-form button {
-    background-color: #4B0082;
-    color: #fff;
+    background-color: #FFA500; /* Orange */
+    color: #000; /* Black */
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -90,7 +91,7 @@ main {
 }
 
 #search-form button:hover {
-    background-color: #3a006b;
+    background-color: #FF8C00; /* Darker Orange */
 }
 
 #fare-estimate {
@@ -116,8 +117,8 @@ main {
 }
 
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #000; /* Black */
+    color: #FFA500; /* Orange */
     text-align: center;
     padding: 10px;
     position: fixed;

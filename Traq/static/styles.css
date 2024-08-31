@@ -6,8 +6,8 @@ body {
 }
 
 header {
-    background-color: #ff6600;
-    color: #fff;
+    background-color: #000; /* Black */
+    color: #FFA500; /* Orange */
     padding: 1rem;
     text-align: center;
 }
@@ -46,8 +46,8 @@ main {
 }
 
 .feature-item {
-    background-color: #ff6600;
-    color: #fff;
+    background-color: #FFA500; /* Orange */
+    color: #000; /* Black */
     padding: 1rem;
     border-radius: 5px;
     text-align: center;
@@ -55,7 +55,7 @@ main {
 }
 
 .feature-item:hover {
-    background-color: #e65c00;
+    background-color: #FF8C00; /* Darker Orange */
 }
 
 #feedback {
@@ -73,8 +73,8 @@ main {
 }
 
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #000; /* Black */
+    color: #FFA500; /* Orange */
     text-align: center;
     padding: 1rem;
     position: fixed;

@@ -5,9 +5,9 @@ function initMap() {
     });
 
     const inputStart = document.getElementById('from-location');
-    const inputDestination = document.getElementById('to-location');
+    const inputEnd = document.getElementById('to-location');
     const autocompleteStart = new google.maps.places.Autocomplete(inputStart);
-    const autocompleteDestination = new google.maps.places.Autocomplete(inputDestination);
+    const autocompleteEnd = new google.maps.places.Autocomplete(inputEnd);
 
     const directionsService = new google.maps.DirectionsService();
     const directionsRenderer = new google.maps.DirectionsRenderer();
@@ -17,18 +17,6 @@ function initMap() {
         e.preventDefault();
         calculateAndDisplayRoute(directionsService, directionsRenderer);
     });
-
-    // Auto-detect current location
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) => {
-            const pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude,
-            };
-            map.setCenter(pos);
-            inputStart.value = `${pos.lat}, ${pos.lng}`;
-        });
-    }
 }
 
 function calculateAndDisplayRoute(directionsService, directionsRenderer) {
@@ -56,27 +44,26 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
 function displayFareEstimate(response) {
     const route = response.routes[0];
     const fareEstimate = calculateFare(route);
-    document.getElementById('fare').textContent = `Estimated Fare: ${fareEstimate} KES`;
+    const saccoFares = [
+        { name: 'SACCO 1', fare: fareEstimate * 1.1 },
+        { name: 'SACCO 2', fare: fareEstimate * 1.2 },
+        { name: 'SACCO 3', fare: fareEstimate * 1.3 },
+    ];
+
+    const fareContainer = document.getElementById('sacco-fares');
+    fareContainer.innerHTML = '';
+    saccoFares.forEach(sacco => {
+        const fareDiv = document.createElement('div');
+        fareDiv.textContent = `${sacco.name}: ${sacco.fare.toFixed(2)} KES`;
+        fareContainer.appendChild(fareDiv);
+    });
 }
 
 function calculateFare(route) {
-    // Simple fare calculation based on distance
     const distance = route.legs[0].distance.value / 1000; // in kilometers
-    const farePerKm = 10; // Example fare rate per kilometer
+    const peakHours = document.getElementById('peak-hours').value === 'peak';
+    const farePerKm = peakHours ? 15 : 10; // Example fare rates
     return distance * farePerKm;
-}
-
-function searchRoutes() {
-    const fromLocation = document.getElementById('from-location').value;
-    const toLocation = document.getElementById('to-location').value;
-    const travelDate = document.getElementById('travel-date').value;
-
-    if (fromLocation && toLocation && travelDate) {
-        alert(`Searching routes from ${fromLocation} to ${toLocation} on ${travelDate}`);
-        // Implement the search functionality here
-    } else {
-        alert('Please fill in all fields.');
-    }
 }
 
 window.onload = initMap;
