@@ -15,10 +15,12 @@
         <ul id="saccoList">
             {% for sacco in saccos %}
             <li class="sacco-card">
-                <h2>{{ sacco.name }}</h2>
-                <p><strong>Routes:</strong> {{ sacco.routes }}</p>
-                <p><strong>Operational Hours:</strong> {{ sacco.hours }}</p>
-                <p><strong>Contact:</strong> {{ sacco.contact }}</p>
+                <h2>{{ sacco.route }}</h2>
+                <p><strong>Route:</strong> {{ sacco.number }}</p>
+                <p><strong>Saccos</strong> {{ sacco.saccos }}</p>
+                <p><strong>Minor Stages</strong> {{ sacco.minnor }}</p>
+                <p><strong>OffPeak</strong> {{ sacco.OffPeak }}</p>
+                <p><strong>Peak</strong> {{ sacco.Peak }}</p>
             </li>
             {% endfor %}
         </ul>

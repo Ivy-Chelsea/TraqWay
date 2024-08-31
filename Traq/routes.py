@@ -1,5 +1,6 @@
 from Traq import app
 from flask import render_template
+from Traq.data import saccos
 
 
 @app.route("/landing")
@@ -24,4 +25,4 @@ def routes():
 
 @app.route("/sacco")
 def sacco():
-    return render_template("sacco.html", title="saccos")
+    return render_template("sacco.html", title="saccos", saccos=saccos)
