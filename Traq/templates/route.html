@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TraQway</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='route.css') }}">
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_ACTUAL_API_KEY&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=07d340254fmshd96cb1998e5538ap18046djsn50e982672094&libraries=places"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -44,7 +44,7 @@
                 <button type="button" onclick="searchRoutes()">Search</button>
             </form>
             <div id="fare-estimate">
-                <h3>Fare Estimate:</h3>
+                <button type="button" onclick="calculateFare()">Fare Estimate</button>
                 <p id="fare"></p>
             </div>
             <div id="location-suggestions"></div>
@@ -52,7 +52,9 @@
         </section>
         <section id="map">
             <h2>Interactive Map</h2>
-            <div id="map-container"></div>
+            <div id="map-container">
+                <iframe src="kenya_forest_map.html" width="100%" height="600"frameborder="0" allowfullscreen></iframe>
+            </div>
         </section>
         <section id="alerts">
             <h2>Real-Time Alerts</h2>
@@ -63,35 +65,53 @@
         <p>© 2024 TraQway</p>
     </footer>
     <script>
-        $(document).ready(function() {
-            $('#from-location, #to-location').on('input', function() {
-                var input = $(this).val();
-                console.log('Input:', input); // Debugging statement
-                var data = null;
-
-                const xhr = new XMLHttpRequest();
-                xhr.withCredentials = true;
-
-                xhr.addEventListener('readystatechange', function () {
-                    if (this.readyState === this.DONE) {
-                        console.log('Response:', this.responseText); // Debugging statement
-                        var response = JSON.parse(this.responseText);
-                        var suggestions = response.results.map(function(result) {
-                            return '<p>' + result.formatted_address + '</p>';
-                        }).join('');
-                        $('#location-suggestions').html(suggestions);
-                    }
-                });
-
-                var apiUrl = 'https://google-map-places.p.rapidapi.com/maps/api/geocode/json?address=' + encodeURIComponent(input) + '&language=en&region=en&result_type=administrative_area_level_1&location_type=APPROXIMATE';
-                console.log('API URL:', apiUrl); // Debugging statement
-                xhr.open('GET', apiUrl);
-                xhr.setRequestHeader('x-rapidapi-key', '07d340254fmshd96cb1998e5538ap18046djsn50e982672094');
-                xhr.setRequestHeader('x-rapidapi-host', 'google-map-places.p.rapidapi.com');
-
-                xhr.send(data);
+        function calculateFare() {
+            const toLocation = document.getElementById('to-location').value.trim();
+            if (!toLocation) {
+                document.getElementById('fare').innerText = 'Please enter a destination.';
+                return;
+            }
+    
+            const payload = JSON.stringify({ data: [toLocation] });
+    
+            console.log('Request payload:', payload);
+    
+            fetch('https://funmisiani.app.modelbit.com/v1/predict_cost/latest', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: payload
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('API response:', data);
+                if (data.data && data.data.length === 2) {
+                    // Round prices to 0 decimal places
+                    const offPeakPrice = data.data[0].toFixed(0);
+                    const peakPrice = data.data[1].toFixed(0);
+                    
+                    document.getElementById('fare').innerHTML = `
+                        Off-Peak Price: ${offPeakPrice} <br>
+                        Peak Price: ${peakPrice}
+                    `;
+                } else {
+                    document.getElementById('fare').innerText = 'Unexpected response format.';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching fare estimate:', error);
+                document.getElementById('fare').innerText = 'Error fetching fare estimate';
             });
-        });
-    </script>
+        }
+     </script>
+ 
+    
+   
 </body>
 </html>
