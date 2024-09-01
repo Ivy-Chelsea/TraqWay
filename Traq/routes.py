@@ -31,3 +31,8 @@ def sacco():
 @app.route("/reviews")
 def reviews():
     return render_template("alert.html", title="reviews", saccos=saccos)
+
+
+@app.route("/stages")
+def kenyan():
+    return render_template("kenya_stages_map.html", title="stage locations")
