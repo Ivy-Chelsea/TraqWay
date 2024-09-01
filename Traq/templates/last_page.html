@@ -164,10 +164,11 @@
         <div class="nav-container">
         <nav>
             <ul>
-                <li><a href="book-us.html">Home</a></li>
-                <li><a href="careers.html">Available Sacco's</a></li>
-                <li><a href="about-us.html">Routes</a></li>
-                <li><a href="contact-us.html">Contact Us</a></li>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('sacco') }}">Sacco</a></li>
+                <li><a href="{{ url_for('routes') }}">Route Planner</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+                <li><a href="{{ url_for('reviews') }}">Reviews</a></li>
             
             </ul>
         </nav>
