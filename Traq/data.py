@@ -27,4 +27,13 @@ saccos = [
         "OffPeak": "50ksh",
         "Peak": "70ksh"
     },
+    {
+        "id": 4,
+        "route": "Gataka/Nairobi Town",
+        "number": "45",
+        "saccos": "Naboka Sacco: Afya Centre(",
+        "minnor": "Hardy, Cooperative University",
+        "OffPeak": "70ksh",
+        "Peak": "100ksh"
+    },
 ]
