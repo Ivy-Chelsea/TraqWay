@@ -1,13 +1,11 @@
 import folium
 
 def create_map():
-    #create a map on Kenya
-
     m= folium.Map(location=[0.0236, 37.9062], zoom_start=6)
 
     #Define the forests and their coordinates
 
-    forests = [
+    forrests = [
         {"name": "Kakamega Forest", "location": [0.2827, 34.7519]},
         {"name": "Mau Forest", "location": [-0.5257, 35.6046]},
         {"name": "Aberdare Forest", "location": [-0.4167, 36.6833]},
