@@ -31,9 +31,18 @@ saccos = [
         "id": 4,
         "route": "Gataka/Nairobi Town",
         "number": "45",
-        "saccos": "Naboka Sacco: Afya Centre(",
+        "saccos": "Naboka Sacco: Afya Centre",
         "minnor": "Hardy, Cooperative University",
         "OffPeak": "70ksh",
         "Peak": "100ksh"
+    },
+{
+        "id": 5,
+        "route": "Embakasi/Nairobi Town",
+        "number": "52",
+        "saccos": "City Shuttle: Ambassador, Super Metro: Commercial, City Hoppa: Ambassador",
+        "minnor": "Nyayo, Airtel, Standard, GM, Imara Daima, Cabanas, Pipeline",
+        "OffPeak": "50ksh",
+        "Peak": "80ksh"
     },
 ]

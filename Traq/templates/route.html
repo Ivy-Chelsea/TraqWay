@@ -45,7 +45,7 @@
         <section id="map">
             <h2>Interactive Map</h2>
             <div id="map-container">
-                <iframe src="https://maps.open-street.com/api/route/?origin=48.856614,2.3522219&destination=45.764043,4.835659&mode=driving&key=cle-fournie" width="100%" height="600"frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8549494473928!2d36.7818029730443!3d-1.2591183987288854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1733f4413153%3A0x88cd681a36464cf3!2sAbsa%20%7C%20Branch%20%7C%20Absa%20Bank%20Kenya%20PLC%20Headquarters!5e0!3m2!1sen!2ske!4v1725176372619!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </section>
     </main>
@@ -85,8 +85,8 @@
                     const peakPrice = data.data[1].toFixed(0);
                     
                     document.getElementById('fare').innerHTML = `
-                        Off-Peak Price: ${offPeakPrice} <br>
-                        Peak Price: ${peakPrice}
+                        Peak Price: ${offPeakPrice} <br>
+                       off- Peak Price: ${peakPrice}
                     `;
                 } else {
                     document.getElementById('fare').innerText = 'Unexpected response format.';
